@@ -3,7 +3,7 @@ import torch
 from PIL import Image
 import numpy as np
 import pandas as pd
-import torchvision.transforms.functional as TF
+from torchvision import transforms
 import streamlit as st
 import gdown
 import CNN  # Your CNN.py should be in the same directory
