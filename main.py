@@ -22,7 +22,7 @@ disease_info = pd.read_csv('disease_info.csv', encoding='cp1252')
 supplement_info = pd.read_csv('supplement_info.csv', encoding='cp1252')
 
 # Load model
-model = CNN.CNN(39)  # Use correct number of classes
+model = CNN.CNN(39)  # Replace 39 with actual number of output classes
 model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
 model.eval()
 
@@ -33,7 +33,7 @@ def prediction(image):
     output = model(input_data).detach().numpy()
     return np.argmax(output)
 
-# UI
+# Streamlit UI
 st.title("🌿 Plant Disease Detection")
 st.markdown("Upload an image of a plant leaf to detect any disease.")
 
