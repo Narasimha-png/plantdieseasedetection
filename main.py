@@ -9,13 +9,12 @@ import gdown
 import CNN  # Make sure CNN.py is in the same directory
 
 # Download model.pt from Google Drive if not already downloaded
-model_path = "model.pt"
 drive_file_id = "1UOYv_KEKdRG26z1UyfnhtMbviAUJzKGL"
-gdrive_url = f"https://drive.google.com/uc?id={drive_file_id}"
 
 if not os.path.exists(model_path):
-    with st.spinner("Downloading model..."):
-        gdown.download(gdrive_url, model_path, quiet=False)
+    with st.spinner("Downloading model from Google Drive..."):
+        gdown.download(f"https://drive.google.com/uc?id={drive_file_id}", output=model_path, quiet=False, fuzzy=True)
+
 
 # Load CSV files
 disease_info = pd.read_csv('disease_info.csv', encoding='cp1252')
